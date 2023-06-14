@@ -33,6 +33,7 @@ func (cw *chunkReader) Read(p []byte) (n int, err error) {
 		cw.n = n
 		return n, err
 	}
+
 	n, _ = io.ReadFull(cw.bufr, p[:cw.n])
 	cw.n = 0
 	if err = cw.discardCRLF(); err != nil {
